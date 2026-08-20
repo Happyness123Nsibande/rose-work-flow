@@ -25,13 +25,13 @@ const SYSTEM_PROMPTS: Record<ToolId, string> = {
 function buildMessages(body: Body): { messages: ChatMessage[]; tool: ToolId; input: string } {
   const tool: ToolId = body.tool ?? "chat";
   let system = SYSTEM_PROMPTS[tool];
-  if (tool === "email" && body.options?.tone) {
+  if (tool === "email" && body.options?.['tone']) {
     system += ` The email tone must be strictly ${body.options.tone}.`;
   }
-  if (body.options?.length) {
+  if (body.options?.['length']) {
     system += ` Preferred response length: ${body.options.length}.`;
   }
-  if (body.options?.extra) {
+  if (body.options?.['extra']) {
     system += ` ${body.options.extra}`;
   }
 
