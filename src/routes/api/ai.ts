@@ -26,13 +26,13 @@ function buildMessages(body: Body): { messages: ChatMessage[]; tool: ToolId; inp
   const tool: ToolId = body.tool ?? "chat";
   let system = SYSTEM_PROMPTS[tool];
   if (tool === "email" && body.options?.['tone']) {
-    system += ` The email tone must be strictly ${body.options.tone}.`;
+    system += ` The email tone must be strictly ${body.options['tone']}.`;
   }
   if (body.options?.['length']) {
-    system += ` Preferred response length: ${body.options.length}.`;
+    system += ` Preferred response length: ${body.options['length']}.`;
   }
   if (body.options?.['extra']) {
-    system += ` ${body.options.extra}`;
+    system += ` ${body.options['extra']}`;
   }
 
   if (tool === "chat" && Array.isArray(body.messages)) {
