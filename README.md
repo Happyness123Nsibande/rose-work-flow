@@ -1,29 +1,112 @@
-# Welcome to your Lovable project
+# WorkMate AI
 
-This project was built with [Lovable](https://lovable.dev).
+An AI-powered workplace productivity assistant built with [TanStack Start](https://tanstack.com/start), React, and Tailwind CSS. WorkMate AI helps professionals draft emails, summarize meetings, plan tasks, research topics, and get instant workplace answers through a unified, modern SaaS interface.
 
-## Build with Lovable
+![WorkMate AI](https://rose-work-flow.lovable.app/opengraph-image)
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Features
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Smart Email Generator** — Compose professional, friendly, or persuasive emails with AI. Includes an "Improve" mode to refine existing drafts.
+- **Meeting Notes Summarizer** — Paste raw meeting notes and get structured summaries with key discussion points, decisions, and action items.
+- **AI Task Planner** — Generate actionable task breakdowns with priorities, deadlines, and estimated effort from a goal or project description.
+- **AI Research Assistant** — Research any topic and receive concise, well-organized summaries with sources and follow-up questions.
+- **AI Workplace Chatbot** — A general-purpose assistant for workplace questions, brainstorming, writing help, and quick answers.
+- **Dashboard** — At-a-glance overview of recent activity, saved tasks, and deadlines.
+- **Responsive Sidebar** — Collapsible navigation that works seamlessly on desktop and mobile.
+- **Settings** — Configure preferences and manage your WorkMate AI experience.
+- **Responsible AI Disclaimer** — Every page reminds users to review AI-generated output before sharing or acting on it.
 
-## Development
+## Tech Stack
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+- **Framework:** TanStack Start v1 (full-stack React 19 with SSR/SSG)
+- **Build Tool:** Vite 7
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **UI Components:** shadcn/ui components
+- **State Management:** `use-ai` hook + localStorage-backed store
+- **AI Backend:** Lovable AI Gateway with streaming responses and a demo fallback for offline use
+- **Deployment:** Lovable Cloud / Edge-ready
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- A Lovable Cloud project (or local environment variables for the AI gateway)
+
+### Installation
+
+```bash
+git clone <your-github-repo-url>
+cd workmate-ai
+bun install   # or npm install
 ```
 
-## Built with
+### Development
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+```bash
+bun dev   # or npm run dev
+```
+
+The dev server starts at `http://localhost:8080`.
+
+### Environment Variables
+
+For full AI functionality, set the following in your Lovable Cloud environment or a `.env` file:
+
+```env
+# Lovable AI Gateway (server-side only)
+LOVABLE_API_KEY=your_lovable_api_key
+```
+
+When the gateway is unavailable, WorkMate AI automatically falls back to realistic demo responses so the UI remains testable.
+
+## Project Structure
+
+```text
+src/
+  components/          # Shared UI components (AppShell, AiOutput, ToolPage)
+  hooks/               # Custom React hooks
+  lib/                 # Utilities, AI fallback, store, and use-ai hook
+  routes/              # TanStack Start file-based routes
+    api/ai.ts          # Server-side AI streaming endpoint
+    index.tsx          # Dashboard
+    email-generator.tsx
+    meeting-summarizer.tsx
+    task-planner.tsx
+    research-assistant.tsx
+    chatbot.tsx
+    settings.tsx
+  styles.css           # Global design tokens and pink-focused theme
+  router.tsx           # TanStack Router setup
+  start.ts             # App start configuration
+```
+
+## AI Features
+
+All AI tools stream responses to the UI and support:
+
+- **Streaming output** — See results appear in real time.
+- **Copy to clipboard** — One-click copy of any generated content.
+- **Regenerate** — Ask the AI to produce a fresh version.
+- **Offline/demo fallback** — Pre-written realistic responses keep the app usable without an API key.
+
+## Design
+
+WorkMate AI uses a professional pink-focused palette with semantic OKLCH color tokens, rounded surface cards, and subtle shadows. The design system is defined in `src/styles.css` and applied consistently across all tools and pages.
+
+## Responsible AI
+
+AI-generated content may contain inaccuracies or omissions. Always review output before sending emails, sharing meeting summaries, or making decisions. Do not enter confidential, sensitive, personal, financial, or proprietary information unless the system is explicitly approved for such data.
+
+## Deployment
+
+This project is optimized for Lovable Cloud. You can also connect it to GitHub for two-way sync and deploy it to any platform that supports Vite-based React apps.
+
+## License
+
+This project is generated by [Lovable](https://lovable.dev) and is owned by the project creator. Use, modify, and deploy it as your own.
+
+---
+
+Built with ❤️ using Lovable.
