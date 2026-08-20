@@ -2,7 +2,6 @@
 
 An AI-powered workplace productivity assistant built with [TanStack Start](https://tanstack.com/start), React, and Tailwind CSS. WorkMate AI helps professionals draft emails, summarize meetings, plan tasks, research topics, and get instant workplace answers through a unified, modern SaaS interface.
 
-![WorkMate AI](https://rose-work-flow.lovable.app/opengraph-image)
 
 ## Features
 
